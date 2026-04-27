@@ -1,0 +1,19 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/YOUR_PROJECT_ID/network-diagnostic-api', '.']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/YOUR_PROJECT_ID/network-diagnostic-api']
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    args:
+      [
+        'gcloud', 'run', 'deploy', 'network-diagnostic-api',
+        '--image', 'gcr.io/YOUR_PROJECT_ID/network-diagnostic-api',
+        '--region', 'us-central1',
+        '--platform', 'managed',
+        '--allow-unauthenticated'
+      ]
+
+images:
+  - 'gcr.io/YOUR_PROJECT_ID/network-diagnostic-api'
