@@ -17,3 +17,6 @@ steps:
 
 images:
   - 'gcr.io/axial-glow-494602-g6/network-diagnostic-api'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
