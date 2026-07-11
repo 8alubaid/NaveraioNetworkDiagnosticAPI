@@ -1,22 +1,32 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'us-docker.pkg.dev/axial-glow-494602-g6/gcr.io/network-diagnostic-api', '.']
+    args:
+      [
+        'build',
+        '-t',
+        'us-docker.pkg.dev/network-diagnostic-api/gcr.io/network-diagnostic-api',
+        '.'
+      ]
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'us-docker.pkg.dev/axial-glow-494602-g6/gcr.io/network-diagnostic-api']
+    args:
+      [
+        'push',
+        'us-docker.pkg.dev/network-diagnostic-api/gcr.io/network-diagnostic-api'
+      ]
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     args:
       [
         'gcloud', 'run', 'deploy', 'network-diagnostic-api',
-        '--image', 'us-docker.pkg.dev/axial-glow-494602-g6/gcr.io/network-diagnostic-api',
+        '--image', 'us-docker.pkg.dev/network-diagnostic-api/gcr.io/network-diagnostic-api',
         '--region', 'us-central1',
         '--platform', 'managed',
         '--allow-unauthenticated'
       ]
 
 images:
-  - 'us-docker.pkg.dev/axial-glow-494602-g6/gcr.io/network-diagnostic-api'
+  - 'us-docker.pkg.dev/network-diagnostic-api/gcr.io/network-diagnostic-api'
 
 options:
   logging: CLOUD_LOGGING_ONLY
