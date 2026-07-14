@@ -21,8 +21,7 @@ def run_command(command):
 @app.route("/")
 def home():
     return jsonify({
-        "message": "Network Diagnostic API is running",
-        "version": "Network Diagnostic API v2 deployed by Navera CI/CD Faris did testing heer",
+        "message": "Network Diagnostic API is running", # Add ("version": "v2 deployed by Navera CI/CD")
         "endpoints": ["/ping?host=google.com", "/dns?domain=google.com", "/health"]
     })
 
