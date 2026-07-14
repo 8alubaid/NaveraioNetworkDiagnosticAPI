@@ -22,7 +22,6 @@ def run_command(command):
 def home():
     return jsonify({
         "message": "Network Diagnostic API is running", # Add ("version": "v2 deployed by Navera CI/CD")
-        "version": "v2 deployed by Navera CI/CD",
         "endpoints": ["/ping?host=google.com", "/dns?domain=google.com", "/health"]
     })
 
