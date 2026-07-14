@@ -18,10 +18,16 @@ steps:
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     args:
       [
-        'gcloud', 'run', 'deploy', 'network-diagnostic-api',
-        '--image', 'us-docker.pkg.dev/network-diagnostic-api/gcr.io/network-diagnostic-api',
-        '--region', 'us-central1',
-        '--platform', 'managed',
+        'gcloud',
+        'run',
+        'deploy',
+        'network-diagnostic-api',
+        '--image',
+        'us-docker.pkg.dev/network-diagnostic-api/gcr.io/network-diagnostic-api',
+        '--region',
+        'us-central1',
+        '--platform',
+        'managed',
         '--allow-unauthenticated'
       ]
 
